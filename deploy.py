@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler, OrdinalEncoder, OneHotEncoder
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
