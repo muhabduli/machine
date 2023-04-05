@@ -18,7 +18,7 @@ with st.sidebar:
 
     
 # bank accout Prediction Page
-if (selected == Financial Inclusion'):
+if (selected == 'Financial Inclusion'):
     
     # page title
     st.title('Financial Inclusion')
