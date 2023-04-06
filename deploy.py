@@ -31,3 +31,6 @@ if (selected == 'Financial Inclusion'):
 
     with col1:
         education_level = st.number_input('education_level', min_value=0.00, max_value=5.00, step=1.00)
+    
+    with col1:
+        Outlet_Size = st.selectbox('Outlet Size', ['Small', 'Medium', 'High'])
