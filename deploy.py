@@ -30,7 +30,7 @@ if (selected == 'Financial Inclusion'):
         age_of_respondent = st.number_input('age_of_respondent', min_value=0.00, max_value=90.00, step=1.00)
 
     with col1:
-        education_level = st.number_input('education_level', min_value=0.00, max_value=5.00, step=1.00)
+        education_level = st.selectbox('education_level', ['No formal education', 'Other/Dont know/RTA', 'Primary education', 'Secondary education', 'Tertiary education', 'Vocational/Specialised training'])
     
     with col1:
         Outlet_Size = st.selectbox('Outlet Size', ['Small', 'Medium', 'High'])
