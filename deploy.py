@@ -27,7 +27,7 @@ if (selected == 'Financial Inclusion'):
     col1, col2 = st.columns(2)
     
     with col1:
-        Item_Visibility = st.number_input('Item Visibility', min_value=0.00, max_value=0.40, step=0.01)
+        age_of_respondent = st.number_input('age_of_respondent', min_value=0.00, max_value=90, step=1)
 
     with col1:
         Item_MRP = st.number_input('Item MRP', min_value=30.00, max_value=270.00, step=1.00)
