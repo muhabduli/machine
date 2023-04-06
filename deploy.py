@@ -25,7 +25,7 @@ if (selected == 'Financial Inclusion'):
 
 # getting the input data from the user
     col1, col2 = st.columns(2)
-    
+
     with col1:
         location_type = st.selectbox('location_type', ['Rural', 'Urban'])
 
@@ -35,7 +35,7 @@ if (selected == 'Financial Inclusion'):
     with col1:
         age_of_respondent = st.number_input('age_of_respondent', min_value=0.00, max_value=90.00, step=1.00)
 
-     with col2:
+    with col2:
         gender_of_respondent = st.selectbox('gender_of_respondent', ['Male', 'female'])
 
     with col2:
