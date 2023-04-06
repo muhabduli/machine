@@ -34,3 +34,6 @@ if (selected == 'Financial Inclusion'):
     
     with col1:
         Outlet_Size = st.selectbox('Outlet Size', ['Small', 'Medium', 'High'])
+    
+    with col2:
+        job_type = st.selectbox('job_type', ['Dont Know/Refuse to answer','Farming and Fishing','Formally employed Government','Formally employed Private','Government Dependent','Informally employed','No Income','Other Income','Remittance Dependent','Self employed'])
