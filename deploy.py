@@ -37,3 +37,6 @@ if (selected == 'Financial Inclusion'):
     
     with col2:
         job_type = st.selectbox('job_type', ['Dont Know/Refuse to answer','Farming and Fishing','Formally employed Government','Formally employed Private','Government Dependent','Informally employed','No Income','Other Income','Remittance Dependent','Self employed'])
+
+    with col2:
+        location_type = st.selectbox('location_type', ['Rural', 'Urban'])
