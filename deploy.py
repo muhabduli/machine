@@ -27,16 +27,21 @@ if (selected == 'Financial Inclusion'):
     col1, col2 = st.columns(2)
     
     with col1:
-        age_of_respondent = st.number_input('age_of_respondent', min_value=0.00, max_value=90.00, step=1.00)
+        location_type = st.selectbox('location_type', ['Rural', 'Urban'])
 
-    with col1:
-        education_level = st.selectbox('education_level', ['No formal education', 'Other/Dont know/RTA', 'Primary education', 'Secondary education', 'Tertiary education', 'Vocational/Specialised training'])
-    
     with col1:
         cellphone_access = st.selectbox('cellphone_access', ['Yes', 'No'])
 
+    with col1:
+        age_of_respondent = st.number_input('age_of_respondent', min_value=0.00, max_value=90.00, step=1.00)
+
+     with col2:
+        gender_of_respondent = st.selectbox('gender_of_respondent', ['Male', 'female'])
+
+    with col2:
+        education_level = st.selectbox('education_level', ['No formal education', 'Other/Dont know/RTA', 'Primary education', 'Secondary education', 'Tertiary education', 'Vocational/Specialised training'])
+    
     with col2:
         job_type = st.selectbox('job_type', ['Dont Know/Refuse to answer','Farming and Fishing','Formally employed Government','Formally employed Private','Government Dependent','Informally employed','No Income','Other Income','Remittance Dependent','Self employed'])
 
-    with col2:
-        location_type = st.selectbox('location_type', ['Rural', 'Urban'])
+    
