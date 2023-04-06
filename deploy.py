@@ -32,8 +32,6 @@ if (selected == 'Financial Inclusion'):
     with col1:
         education_level = st.selectbox('education_level', ['No formal education', 'Other/Dont know/RTA', 'Primary education', 'Secondary education', 'Tertiary education', 'Vocational/Specialised training'])
     
-    with col1:
-        Outlet_Size = st.selectbox('Outlet Size', ['Small', 'Medium', 'High'])
     
     with col2:
         job_type = st.selectbox('job_type', ['Dont Know/Refuse to answer','Farming and Fishing','Formally employed Government','Formally employed Private','Government Dependent','Informally employed','No Income','Other Income','Remittance Dependent','Self employed'])
