@@ -87,4 +87,6 @@ if (selected == 'Financial Inclusion'):
 
         df['age_of_respondent'] = StandardScaler().fit_transform(df['age_of_respondent'])
 
+        prediction = model.predict(df)
         
+        return round(float(prediction),2)
