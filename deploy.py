@@ -94,5 +94,4 @@ if (selected == 'Financial Inclusion'):
     if st.button('Predict Account'):
         accounts_prediction = make_prediction(data)
         accounts_prediction_output = f"The bank account is predicted to be {accounts_prediction}"
-    
-print(accounts_prediction_output)
+        st.success(accounts_prediction_output)
