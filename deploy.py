@@ -90,3 +90,9 @@ if (selected == 'Financial Inclusion'):
         prediction = model.predict(df)
         
         return round(float(prediction),2)
+
+    if st.button('Predict Account'):
+        accounts_prediction = make_prediction(data)
+        accounts_prediction_output = f"The bank account is predicted to be {accounts_prediction}"
+    
+     st.success(accounts_prediction_output)
