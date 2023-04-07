@@ -47,12 +47,12 @@ if (selected == 'Financial Inclusion'):
      #Data Preprocessing
         
     data = {
-            location_type:'location_type',
-            cellphone_access:'cellphone_access',
-            age_of_respondent: 'age_of_respondent',
-            gender_of_respondent: 'gender_of_respondent',
-            education_level: 'education_level',
-            job_type: 'job_type'
+            'location_type':location_type,
+            'cellphone_access':cellphone_access,
+            'age_of_respondent': age_of_respondent,
+            'gender_of_respondent': gender_of_respondent,
+            'education_level': education_level,
+            'job_type': job_type
             }
     
     oe = OrdinalEncoder(categories = [['Dont Know/Refuse to answer','Farming and Fishing','Formally employed Government','Formally employed Private','Government Dependent','Informally employed','No Income','Other Income','Remittance Dependent','Self employed']])
