@@ -95,4 +95,7 @@ if (selected == 'Financial Inclusion'):
         accounts_prediction = make_prediction(data)
         accounts_prediction_output = f"The bank account is predicted to be {accounts_prediction}"
     
-     st.success(accounts_prediction_output)
+    st.success(sales_prediction_output)
+
+    
+     
