@@ -44,4 +44,47 @@ if (selected == 'Financial Inclusion'):
     with col2:
         job_type = st.selectbox('job_type', ['Dont Know/Refuse to answer','Farming and Fishing','Formally employed Government','Formally employed Private','Government Dependent','Informally employed','No Income','Other Income','Remittance Dependent','Self employed'])
 
+     #Data Preprocessing
+        
+    data = {
+            location_type:'location_type',
+            cellphone_access:'cellphone_access',
+            age_of_respondent: 'age_of_respondent',
+            gender_of_respondent: 'gender_of_respondent',
+            education_level: 'education_level',
+            job_type: 'job_type'
+            }
     
+    oe = OrdinalEncoder(categories = [['Dont Know/Refuse to answer','Farming and Fishing','Formally employed Government','Formally employed Private','Government Dependent','Informally employed','No Income','Other Income','Remittance Dependent','Self employed']])
+
+    oe_ed = OrdinalEncoder(categories = [['No formal education', 'Other/Dont know/RTA', 'Primary education', 'Secondary education', 'Tertiary education', 'Vocational/Specialised training']])
+    scaler = StandardScaler()
+    
+    def make_prediction(data):
+        df = pd.DataFrame(data, index=[0])
+
+        if df['location_type'].values == 'Rural':
+            df['location_type'] = 0.0
+  
+        if df['location_type'].values == 'Urban':
+          df['location_type'] = 1.0
+
+        if df['cellphone_access'].values == 'No':
+            df['cellphone_access'] = 0.0
+  
+        if df['cellphone_access'].values == 'Yes':
+          df['cellphone_access'] = 1.0
+        
+        if df['gender_of_respondent'].values == 'Male':
+            df['gender_of_respondent'] = 0.0
+  
+        if df['gender_of_respondent'].values == 'Female':
+          df['gender_of_respondent'] = 1.0
+
+        df['education_level'] = oe.fit_transform(df[['education_level']])
+
+        df['job_type'] = oe_ed.fit_transform(df[['job_type']])
+
+        df['age_of_respondent'] = StandardScaler().fit_transform(df['age_of_respondent'])
+
+        
