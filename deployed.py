@@ -60,7 +60,7 @@ if (selected == 'Financial Inclusion'):
     
     def make_prediction(data):
         df = pd.DataFrame(data, index=[0])
-        df[ohe.get_feature_names_out()] = ohe.fit_transform(df[['education_level','job_type']])
+        # df[ohe.get_feature_names_out()] = ohe.fit_transform(df[['education_level','job_type']])
 
         if df['location_type'].values == 'Rural':
             df['location_type'] = 0.0
@@ -136,7 +136,7 @@ if (selected == 'Financial Inclusion'):
     
         #df['age_of_respondent'] = StandardScaler().fit_transform(df[['age_of_respondent']])
         scaler = StandardScaler()
-        #df[['age_of_respondent', 'gender_of_respondent']] = scaler.fit_transform(df[['age_of_respondent', 'gender_of_respondent']])
+        df['age_of_respondent'] = scaler.fit_transform(df['age_of_respondent'])
         prediction = model.predict(df)
         return round(float(prediction),2)
 
