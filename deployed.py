@@ -135,6 +135,7 @@ if (selected == 'Financial Inclusion'):
         df=df.drop(columns = ['education_level','job_type'], inplace = True)
     
         #df['age_of_respondent'] = StandardScaler().fit_transform(df[['age_of_respondent']])
+        scaler = StandardScaler()
         df[['age_of_respondent', 'gender_of_respondent']] = scaler.fit_transform(df[['age_of_respondent', 'gender_of_respondent']])
         prediction = model.predict(df)
         return round(float(prediction),2)
