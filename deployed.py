@@ -132,7 +132,7 @@ if (selected == 'Financial Inclusion'):
         if df['job_type'].values == 'Self employed':
           df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]
 
-        df = df.drop(columns = [['education_level','job_type']], axis = 1 )
+    
         df[['age_of_respondent']] = StandardScaler().fit_transform(df[['age_of_respondent']])
 
         prediction = model.predict(df)
