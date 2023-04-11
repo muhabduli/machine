@@ -101,21 +101,38 @@ if (selected == 'Financial Inclusion'):
         if df['education_level'].values == 'Vocational/Specialised training':
          df[['education_level_No formal education','education_level_Other/Dont know/RTA', 'education_level_Primary education','education_level_Secondary education','education_level_Tertiary education','education_level_Vocational/Specialised training']] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0]
 
-        #marital status
-        if df['marital_status'].values == 'Divorced/Seperated':
-          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [1.0, 0.0, 0.0, 0.0, 0.0]
+        # job type
+        if df['job_type'].values == 'Dont Know/Refuse to answer':
+          df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
-        if df['marital_status'].values == 'Dont know':
-          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [0.0, 1.0, 0.0, 0.0, 0.0]
+        if df['job_type'].values == 'Farming and Fishing':
+          df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
-        if df['marital_status'].values == 'Married/Living together':
-          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [0.0, 0.0, 1.0, 0.0, 0.0]
+        if df['job_type'].values == 'Formally employed Government':
+          df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
-        if df['marital_status'].values == 'Single/Never Married':
-          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [0.0, 0.0, 0.0, 1.0, 0.0]
+        if df['job_type'].values == 'Formally employed Private':
+          df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
-        if df['marital_status'].values == 'Widowed':
-          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [0.0, 0.0, 0.0, 0.0, 1.0]
+        if df['job_type'].values == 'Government Dependent':
+          df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+        if df['job_type'].values == 'Informally employed':
+          df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]
+
+        if df['job_type'].values == 'No Income':
+         df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]
+
+        if df['job_type'].values == 'Other Income':
+          df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0]
+
+        if df['job_type'].values == 'Remittance Dependent':
+          df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+
+        if df['job_type'].values == 'Self employed':
+          df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+
 
         df = df.drop(columns = [['education_level','marital_status']], axis = 1 )
         df[['age_of_respondent']] = StandardScaler().fit_transform(df[['age_of_respondent']])
