@@ -102,10 +102,10 @@ if (selected == 'Financial Inclusion'):
          df[['education_level_No formal education','education_level_Other/Dont know/RTA', 'education_level_Primary education','education_level_Secondary education','education_level_Tertiary education','education_level_Vocational/Specialised training']] = [0.0, 0.0, 0.0, 0.0, 0.0, 1.0]
 
         #marital status
-        if df['marital_status'].values == 'Divorced/Seperated ':
+        if df['marital_status'].values == 'Divorced/Seperated':
           df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [1.0, 0.0, 0.0, 0.0, 0.0]
 
-        if df['marital_status'].values == 'Dont know ':
+        if df['marital_status'].values == 'Dont know':
           df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [0.0, 1.0, 0.0, 0.0, 0.0]
 
         if df['marital_status'].values == 'Married/Living together':
