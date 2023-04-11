@@ -81,14 +81,45 @@ if (selected == 'Financial Inclusion'):
         if df['gender_of_respondent'].values == 'Female':
           df['gender_of_respondent'] = 1.0
 
-        df['education_level'] = oe.fit_transform(df[['education_level']])
+        #education level
 
-        df['job_type'] = oe_ed.fit_transform(df[['job_type']])
+        if df['education_level'].values == 'No formal education':
+          df[['education_level_No formal education','education_level_Other/Dont know/RTA', 'education_level_Primary education','education_level_Secondary education','education_level_Tertiary education','education_level_Vocational/Specialised training']] = [1.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
-        df['age_of_respondent'] = StandardScaler().fit_transform(df['age_of_respondent'])
+        if df['education_level'].values == 'Other/Dont know/RTA':
+          df[['education_level_No formal education','education_level_Other/Dont know/RTA', 'education_level_Primary education','education_level_Secondary education','education_level_Tertiary education','education_level_Vocational/Specialised training']] = [0.0, 1.0, 0.0, 0.0, 0.0, 0.0]
 
-        prediction = model.predict(df)
-        
+        if df['education_level'].values == 'Primary education':
+          df[['education_level_No formal education','education_level_Other/Dont know/RTA', 'education_level_Primary education','education_level_Secondary education','education_level_Tertiary education','education_level_Vocational/Specialised training']] = [0.0, 0.0, 1.0, 0.0, 0.0, 0.0]
+
+        if df['education_level'].values == 'Secondary education':
+          df[['education_level_No formal education','education_level_Other/Dont know/RTA', 'education_level_Primary education','education_level_Secondary education','education_level_Tertiary education','education_level_Vocational/Specialised training']] = [0.0, 0.0, 0.0, 1.0, 0.0, 0.0]
+
+        if df['education_level'].values == 'Tertiary education':
+          df[['education_level_No formal education','education_level_Other/Dont know/RTA', 'education_level_Primary education','education_level_Secondary education','education_level_Tertiary education','education_level_Vocational/Specialised training']] = [0.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+
+        if df['education_level'].values == 'Vocational/Specialised training':
+         df[['education_level_No formal education','education_level_Other/Dont know/RTA', 'education_level_Primary education','education_level_Secondary education','education_level_Tertiary education','education_level_Vocational/Specialised training']] = [2.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+
+        #marital status
+        if df['marital_status'].values == 'Divorced/Seperated ':
+          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [1.0, 0.0, 0.0, 0.0, 0.0]
+
+        if df['marital_status'].values == 'Dont know ':
+          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [0.0, 1.0, 0.0, 0.0, 0.0]
+
+        if df['marital_status'].values == 'Married/Living together':
+          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [0.0, 0.0, 1.0, 0.0, 0.0]
+
+        if df['marital_status'].values == 'Single/Never Married':
+          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [0.0, 0.0, 0.0, 1.0, 0.0]
+
+        if df['marital_status'].values == 'Widowed':
+          df[['marital_status_Divorced/Seperated','marital_status_Dont know', 'marital_status_Single/Never Married','marital_status_Single/Never Married','marital_status_Widowed']] = [0.0, 0.0, 0.0, 0.0, 1.0]
+
+        df = df.drop(columns = [['education_level','marital_status']], axis = 1 )
+        df[['age_of_respondent']] = StandardScaler().fit_transform(df[['age_of_respondent']])
+
         return round(float(prediction),2)
 
     if st.button('Predict Account'):
