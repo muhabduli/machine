@@ -39,10 +39,10 @@ if (selected == 'Financial Inclusion'):
         gender_of_respondent = st.selectbox('gender_of_respondent', ['Male', 'female'])
 
     with col2:
-        education_level = st.selectbox('education_level', ['education_level_No formal education','education_level_Other/Dont know/RTA', 'education_level_Primary education','education_level_Secondary education','education_level_Tertiary education','education_level_Vocational/Specialised training'])
+        education_level = st.selectbox('education_level', ['No formal education', 'Other/Dont know/RTA', 'Primary education', 'Secondary education', 'Tertiary education', 'Vocational/Specialised training'])
     
     with col2:
-        job_type = st.selectbox('job_type', ['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed'])
+        job_type = st.selectbox('job_type', ['Dont Know/Refuse to answer','Farming and Fishing','Formally employed Government','Formally employed Private','Government Dependent','Informally employed','No Income','Other Income','Remittance Dependent','Self employed'])
 
      #Data Preprocessing
         
