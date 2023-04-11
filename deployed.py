@@ -55,13 +55,12 @@ if (selected == 'Financial Inclusion'):
             'job_type': job_type
             }
     
-    oe = OrdinalEncoder(categories = [['Dont Know/Refuse to answer','Farming and Fishing','Formally employed Government','Formally employed Private','Government Dependent','Informally employed','No Income','Other Income','Remittance Dependent','Self employed']])
-
-    oe_ed = OrdinalEncoder(categories = [['No formal education', 'Other/Dont know/RTA', 'Primary education', 'Secondary education', 'Tertiary education', 'Vocational/Specialised training']])
-    scaler = StandardScaler()
+    ohe = OneHotEncoder(sparse_output = False, handle_unknown='ignore', drop='if_binary')
+    
     
     def make_prediction(data):
         df = pd.DataFrame(data, index=[0])
+        df[ohe.get_feature_names_out()] = ohe.fit_transform(df[['education_level','job_type']])
 
         if df['location_type'].values == 'Rural':
             df['location_type'] = 0.0
@@ -133,6 +132,7 @@ if (selected == 'Financial Inclusion'):
         if df['job_type'].values == 'Self employed':
           df[['job_type_Dont Know/Refuse to answer','job_type_Farming and Fishing', 'job_type_Formally employed Government','job_type_Formally employed Private','job_type_Government Dependent','job_type_Informally employed','job_type_No Income','job_type_Other Income','job_type_Remittance Dependent','job_type_Self employed']] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]
 
+        df = df.drop(columns = [['education_level','job_type']], axis = 1 )
         df[['age_of_respondent']] = StandardScaler().fit_transform(df[['age_of_respondent']])
 
         prediction = model.predict(df)
